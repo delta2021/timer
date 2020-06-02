@@ -1,0 +1,113 @@
+$color-green: #55c57a;
+$color-green-light: #7ed56f;
+$color-green-dark: #28b485;
+$color-purple: #6c5ce7;
+$color-blue-aqua: #006266;
+$color-green-grass: #009432;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgba($color-blue-aqua, 0.8), rgba($color-green-grass, 0.8))
+}
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 24px;
+    &__circle {
+        fill: $color-green;
+        stroke:$color-purple;
+        stroke-width: 3px;
+    }
+    &__rect {
+        fill: $color-green-light;
+    }
+    &__input-area {
+        input {
+            width: 40px;
+            border: none;
+            border-bottom: 2px solid $color-purple;
+            margin-right: 20px;
+            text-align: center;
+            border-radius: 3px;
+            font-size: 16px;
+           
+            &:focus {
+                outline: none;
+            }
+        }
+
+    }
+    &__time-text-container {
+        position: absolute;
+        top: 200px;
+    }
+  
+}
+
+
+.button-container {
+    position: absolute;
+    top: 280px;
+    width: 30px;
+  
+}
+
+.btn {
+  &:link,
+  &:visited {
+    font-size: 20px;
+    position: absolute;
+    background-color: $color-green;
+    color: $color-purple;
+    text-decoration: none;
+    padding: 3px 10px;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  text-align: center;
+  &--play {
+      z-index:1;
+  }
+  &--pause {
+      z-index: 0;
+  }
+  &--submit {
+      position: relative;
+      &::after {
+        content: "";
+        display: inline-block;
+        background-color: $color-green-light;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left:0;
+        top: 0;
+        border-radius: 10px;
+        z-index: -1;
+        transition: all 0.5s;
+
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 1px 2px 3px rgba(0, 0, 0, .3);
+        &::after {
+        transform: scale(1.3, 1.4);
+        opacity: 0;
+
+        }
+      }
+      &:active {
+          transform: translateY(0px);
+      }
+
+     
+  }
+}
